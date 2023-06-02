@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-
+//Generating randomn quote function
    
 function getRandomQuote(quotes) {
     return quotes[Math.floor(Math.random() * quotes.length)];
@@ -10,6 +10,7 @@ function getRandomQuote(quotes) {
     const [quotes, setQuotes] = useState([]);
     const [quote, setQuote] = useState(null);
   
+     //Fetching JSON data 
     useEffect(() => {
       fetch("https://type.fit/api/quotes")
         .then((res) => res.json())
@@ -19,6 +20,7 @@ function getRandomQuote(quotes) {
         });
     }, []);
   
+     //Event function to render randomn quote everytime button is clicked
     function getNewQuote() {
       setQuote(getRandomQuote(quotes));
     }
